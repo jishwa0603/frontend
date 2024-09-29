@@ -1,0 +1,207 @@
+/* Header Styling */
+header {
+    background-color: black; /* Change header to white */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+}
+
+/* Brand Name "InternNotify" Styling */
+header .logo {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+}
+
+
+/* Navigation Buttons Styling */
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white; /* White text */
+    background-color: black; /* Blue background for navigation buttons */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: black;
+    background-color: white; /* Darker blue on hover */
+}
+
+/* Background Image for the Main Section */
+body {
+    background-image: url('your-background-image.jpg'); /* Add your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-bottom: 80px; /* Space for fixed footer */
+}
+
+/* Center Content Styling */
+#main-content {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background for contrast */
+    margin-top: 50px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.main-section {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.main-section h1 {
+    font-size: 36px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.filter-section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Container for search bar and dropdown */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 500px; /* Modern, slightly wider search bar */
+    padding: 12px;
+    background-color: #fff;
+    border-radius: 50px; /* Smooth rounded borders */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for modern effect */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Input field inside search bar */
+.search-container input {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px; /* Rounded for modern look */
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Search button styling */
+.search-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Search icon color */
+.search-container .search-icon {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Hover effect for search bar */
+.search-container:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+/* Dropdown section for Internship Type and Domain */
+.dropdown-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 20px; /* More space between dropdowns */
+}
+
+/* Modern dropdown styles */
+.dropdown-section select {
+    width: 200px; /* Larger width for dropdowns */
+    padding: 12px;
+    border: none;
+    border-radius: 50px; /* Smooth rounded dropdowns */
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Modern shadow */
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Hover effect for dropdowns */
+.dropdown-section select:hover {
+    background-color: #f1f1f1;
+}
+
+/* Add focus effect on input and select */
+.search-container input:focus, 
+.dropdown-section select:focus {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 150, 255, 0.3);
+}
+
+/* Footer styling */
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed; /* Fixed position for the footer */
+    bottom: 0;
+    width: 100%;
+    z-index: 999; /* Ensure it stays on top of other elements */
+}
+
+/* Links inside the footer */
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.social-media {
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    color: white;
+    margin: 0 10px;
+    font-size: 24px; /* Adjust the size of the icons */
+}
+
+.social-media a:hover {
+    color: black; /* Change color on hover */
+}
+
+/* Mobile Devices */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        height: auto;
+    }
+
+    .input-field {
+        width: 90%;
+    }
+}
