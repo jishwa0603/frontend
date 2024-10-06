@@ -17,6 +17,50 @@ function handleFormSubmit(event) {
         alert('Please fill in all the fields!');
     }
 }
+const templateSelect = document.getElementById('templateSelect');
+
+templateSelect.addEventListener('change', function() {
+    const selectedTemplate = this.value;
+    // Load the selected template dynamically (this can be done using Ajax or by swapping innerHTML)
+    loadTemplate(selectedTemplate);
+});
+function enableEditMode() {
+    editableElements.forEach(el => {
+        el.setAttribute('contenteditable', 'true');
+    });
+    editToggleButton.style.display = 'none';
+    saveButton.style.display = 'block';
+}
+
+function disableEditMode() {
+    editableElements.forEach(el => {
+        el.setAttribute('contenteditable', 'false');
+    });
+    editToggleButton.style.display = 'block';
+    saveButton.style.display = 'none';
+}
+const saveButton = document.getElementById('save');
+
+saveButton.addEventListener('click', function () {
+   const resumeContent = document.querySelector('.container');
+   html2pdf().from(resumeContent).save('resume.pdf');
+});
+
+
+editToggleButton.addEventListener('click', enableEditMode);
+saveButton.addEventListener('click', disableEditMode);
+
+
+function loadTemplate(templateName) {
+    // Example function to dynamically load template
+    const resumeContainer = document.querySelector('.resume-container');
+    fetch(templateName + '.html')
+        .then(response => response.text())
+        .then(data => {
+            resumeContainer.innerHTML = data;
+        });
+}
+
 
 // Add an event listener to the form for submission
 document.addEventListener('DOMContentLoaded', () => {

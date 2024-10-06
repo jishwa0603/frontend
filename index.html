@@ -7,41 +7,50 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="script.js" defer></script>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
 </head>
 <body>
 
+    <!-- Header Section -->
     <header>
         <div class="logo">InternNotify</div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Internship</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="interviewtips.html">Interview Tips</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Resume</a>
+                    <div class="dropdown-content">
+                        <a href="#" id="template1">Template 1</a>
+                        <a href="#" id="template2">Template 2</a>
+                        <a href="#" id="template3">Template 3</a>
+                        <a href="#" id="template4">Template 4</a>
+                        <a href="#" id="template5">Template 5</a>
+                    </div>
+                </li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="signup.html">Signup</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="https://www.example.com/ats-checker" target="_blank">ATS Score Checker</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Main Content -->
+    <!-- Main Content Section -->
     <section class="main-section">
         <div class="quote-container">
             <h2 class="quote">Make your dream career a reality</h2>
         </div>
     
-        
         <div class="filter-section">
             <form id="internship-form">
                 <div class="search-section">
-                    <!-- Modern Search Bar Container -->
                     <div class="search-container">
                         <input type="text" id="companies" placeholder="Search Companies">
                         <button type="submit" class="search-button">
-                            <i class="fas fa-search search-icon"></i> <!-- Search Icon -->
+                            <i class="fas fa-search search-icon"></i>
                         </button>
                     </div>
                 
-                    <!-- Modern Dropdowns for Internship Type and Domain -->
                     <div class="dropdown-section">
                         <select id="internship-type">
                             <option value="" disabled selected>Internship Type</option>
@@ -63,14 +72,37 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Editable Resume Section -->
+    <section class="resume-section" id="resume-section" style="display:none;">
+        <div class="container">
+            <header>
+                <h1 contenteditable="true">Your Name</h1>
+                <p contenteditable="true">Your Title</p>
+                <p contenteditable="true">Summary</p>
+            </header>
+            <section class="experience">
+                <h2>Experience</h2>
+                <p contenteditable="true">Your work experience details go here.</p>
+            </section>
+            <section class="education">
+                <h2>Education</h2>
+                <p contenteditable="true">Your education details go here.</p>
+            </section>
+            <button onclick="downloadResume()">Download</button>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
     <footer>
+        <h1>InternNotify Users</h1>
+        <p style="text-align: center;">
+            “Empowering the next generation to chase their dreams. Explore countless opportunities and build your future today. InternNotify - Your gateway to success.”
+        </p>
         <div class="footer-links">
             <a href="#">About</a>
-            <a href="#">Terms & Condition</a>
-            <a href="#">Privacy</a>
-            <a href="#">Contact</a>
-            <a href="#">Our Service</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Contact us</a>
         </div>
         
         <!-- Add Social Media Icons -->
@@ -81,6 +113,26 @@
         </div>
 
         <p>&copy; 2024 InternNotify</p>
-    </footer>  
+    </footer>
+
+    <script>
+        // Script to show resume template when selected
+        document.getElementById('template1').addEventListener('click', function() {
+            document.getElementById('resume-section').style.display = 'block';
+            window.scrollTo(0, document.getElementById('resume-section').offsetTop);
+        });
+
+        function downloadResume() {
+            const element = document.querySelector('.resume-section');
+            const opt = {
+                margin:       1,
+                filename:     'resume-template1.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(element).set(opt).save();
+        }
+    </script>
 </body>
 </html>
